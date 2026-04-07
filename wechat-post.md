@@ -22,7 +22,7 @@ Important:
 
 Guide page:
 
-`[PASTE LANDING PAGE LINK HERE]`
+`https://voltriz1.github.io/Hsk-app-landing-page`
 
 Google Group:
 
@@ -60,7 +60,7 @@ Thank you. I hope it helps you practice Chinese in a fun way.
 
 引导页面：
 
-`[在这里粘贴落地页链接]`
+`https://voltriz1.github.io/Hsk-app-landing-page`
 
 Google Group：
 
