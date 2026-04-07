@@ -1,0 +1,753 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HSK Quiz App Closed Test</title>
+  <meta name="description" content="Closed test guide for HSK Quiz App, built for international students at Kunming University of Science and Technology.">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: rgba(15, 23, 42, 0.88);
+      --card: rgba(255, 255, 255, 0.06);
+      --line: rgba(255, 255, 255, 0.12);
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --accent: #ff9f1c;
+      --accent2: #2ec4b6;
+      --warn: #ff6b6b;
+      --shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+      --r1: 28px;
+      --r2: 20px;
+      --r3: 14px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(255, 159, 28, 0.18), transparent 26%),
+        radial-gradient(circle at bottom left, rgba(46, 196, 182, 0.16), transparent 28%),
+        linear-gradient(180deg, #0f172a 0%, #111827 55%, #0b1120 100%);
+      min-height: 100vh;
+    }
+
+    .shell {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+      padding: 24px 18px 56px;
+    }
+
+    .lang-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 16px;
+    }
+
+    .lang-toggle {
+      display: inline-flex;
+      padding: 6px;
+      gap: 6px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .lang-toggle button {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .lang-toggle button.active {
+      background: linear-gradient(135deg, var(--accent), #ffd166);
+      color: #111827;
+    }
+
+    .hero, .section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero {
+      border-radius: var(--r1);
+      padding: 32px 22px 28px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      bottom: -120px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,159,28,0.32), rgba(255,159,28,0));
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(46,196,182,0.14);
+      border: 1px solid rgba(46,196,182,0.24);
+      color: #d7fff8;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .hero-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+
+    .hero-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 22px;
+      object-fit: cover;
+      background: rgba(255,255,255,0.9);
+      padding: 6px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.16);
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2.2rem, 6vw, 4.5rem);
+      line-height: 0.96;
+      letter-spacing: -0.04em;
+      max-width: 14ch;
+    }
+
+    .lede {
+      margin: 0;
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.65;
+    }
+
+    .chips, .cta-row, .copy-row, .feature-grid, .steps, .faq-list, .asset-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .chips { margin: 22px 0; }
+
+    .chip {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.08);
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .chip.warn {
+      background: rgba(255,107,107,0.14);
+      border-color: rgba(255,107,107,0.24);
+      color: #ffd5d5;
+    }
+
+    .btn, .copy-row button, .asset-links a {
+      min-height: 50px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.18s ease;
+    }
+
+    .btn:hover, .copy-row button:hover, .asset-links a:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--accent), #ffd166);
+      color: #111827;
+      box-shadow: 0 12px 24px rgba(255,159,28,0.26);
+    }
+
+    .btn.secondary, .copy-row button, .asset-links a {
+      background: rgba(255,255,255,0.08);
+      border-color: var(--line);
+      color: var(--text);
+    }
+
+    .stack {
+      display: grid;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .section {
+      border-radius: var(--r2);
+      padding: 24px 18px;
+    }
+
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      letter-spacing: -0.03em;
+    }
+
+    .section p, small {
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .notice {
+      border-left: 4px solid var(--accent);
+      background:
+        linear-gradient(135deg, rgba(255,159,28,0.16), rgba(255,159,28,0.05)),
+        var(--panel);
+    }
+
+    .notice.warn {
+      border-left-color: var(--warn);
+      background:
+        linear-gradient(135deg, rgba(255,107,107,0.16), rgba(255,107,107,0.05)),
+        var(--panel);
+    }
+
+    .feature-grid, .action-grid {
+      display: grid;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .feature-grid {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .action-grid {
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    }
+
+    .feature-card, .step-card, .action-card, .faq-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--r3);
+      padding: 16px;
+    }
+
+    .hero-shot {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: minmax(0, 360px);
+      justify-content: center;
+    }
+
+    .hero-shot img,
+    .gallery-phone img {
+      width: 100%;
+      display: block;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.24);
+    }
+
+    .gallery-grid {
+      display: grid;
+      gap: 18px;
+      margin-top: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .gallery-phone {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--r3);
+      padding: 14px;
+    }
+
+    .gallery-phone strong {
+      display: block;
+      margin: 12px 0 8px;
+      font-size: 1rem;
+    }
+
+    .feature-card strong, .step-card strong, .action-card strong, .faq-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .step-number {
+      width: 32px;
+      height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, var(--accent2), #7ce9dc);
+      color: #083344;
+      font-weight: 800;
+    }
+
+    .link-box {
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 12px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(255,255,255,0.12);
+      font-family: Consolas, "Courier New", monospace;
+      word-break: break-word;
+    }
+
+    .copy-status {
+      margin-top: 10px;
+      min-height: 1.2em;
+      color: #bbf7d0;
+      font-size: 0.95rem;
+    }
+
+    .contact-card {
+      display: grid;
+      gap: 16px;
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: var(--r3);
+      background: var(--card);
+      border: 1px solid var(--line);
+    }
+
+    .contact-qr {
+      width: min(100%, 180px);
+      border-radius: 20px;
+      display: block;
+      background: white;
+      padding: 8px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    .footer {
+      padding: 26px 2px 8px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .lang { display: none; }
+    .lang.active { display: block; }
+
+    @media (min-width: 840px) {
+      .hero { padding: 44px 38px 36px; }
+      .section { padding: 28px 24px; }
+      .stack { gap: 22px; margin-top: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="lang-bar">
+      <div class="lang-toggle" aria-label="Language selector">
+        <button id="btn-en" class="active" type="button" onclick="setLang('en')">English</button>
+        <button id="btn-zh" type="button" onclick="setLang('zh')">中文</button>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="hero-brand">
+        <img class="hero-icon" src="./media/app_icon.png" alt="HSK Quiz App icon">
+        <div>
+          <span class="eyebrow lang active" data-lang="en">KUST student guide</span>
+          <span class="eyebrow lang" data-lang="zh">昆明理工大学学生指南</span>
+        </div>
+      </div>
+
+      <div class="lang active" data-lang="en">
+        <h1>Practice Chinese with HSK Quiz App</h1>
+        <p class="lede">A fun Android study app for international students at Kunming University of Science and Technology. Join the closed test, install it, and use it for quick, useful practice with vocabulary, pinyin, translation, and sentence patterns.</p>
+      </div>
+
+      <div class="lang" data-lang="zh">
+        <h1>用 HSK Quiz App 轻松练中文</h1>
+        <p class="lede">这是一款面向昆明理工大学国际学生的安卓中文学习应用。加入封闭测试后，你可以用更轻松的方式练习词汇、拼音、翻译和句型，也能更自然地准备 HSK。</p>
+      </div>
+
+      <div class="chips">
+        <span class="chip">Android closed test</span>
+        <span class="chip">KUST international students</span>
+        <span class="chip warn">Android only for now</span>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn primary" href="#how-to-join">How to Join</a>
+        <button class="btn secondary" type="button" onclick="copyText('https://groups.google.com/g/chinese-practice-group-testers', 'group-copy-global')">Copy Group Link</button>
+      </div>
+      <div id="group-copy-global" class="copy-status"></div>
+
+      <div class="hero-shot">
+        <img src="./media/hero-screen.png" alt="HSK Quiz App level selection screen">
+      </div>
+    </section>
+
+    <div class="stack">
+      <section class="section">
+        <div class="lang active" data-lang="en">
+          <h2>Why students will actually use it</h2>
+          <p>HSK Quiz App is meant to feel like quick, low-pressure practice rather than homework. It fits naturally into student life, whether you want a short review between classes, in the dorm, or before an HSK exam.</p>
+        </div>
+        <div class="lang" data-lang="zh">
+          <h2>为什么学生愿意真正使用它</h2>
+          <p>HSK Quiz App 更像是轻松、没有压力的小练习，而不是额外作业。无论是课间、宿舍，还是 HSK 考试前，你都可以随时花几分钟做一次中文复习。</p>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-card"><strong>Vocabulary Quiz</strong><small>Practice Chinese words and meanings quickly.</small></div>
+          <div class="feature-card"><strong>Sentence Completion</strong><small>Learn how words fit into real sentence patterns.</small></div>
+          <div class="feature-card"><strong>Pinyin Match</strong><small>Connect characters with their pinyin and sound.</small></div>
+          <div class="feature-card"><strong>Translation Quiz</strong><small>Move between English and Chinese with quiz feedback.</small></div>
+          <div class="feature-card"><strong>HSK 1-5</strong><small>Progress through multiple HSK difficulty levels.</small></div>
+          <div class="feature-card"><strong>Pronunciation</strong><small>Tap to hear Chinese pronunciation support.</small></div>
+          <div class="feature-card"><strong>Progress Stats</strong><small>Track games played and average scores.</small></div>
+          <div class="feature-card"><strong>Multilingual UI</strong><small>Friendly for international students using different languages.</small></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="lang active" data-lang="en">
+          <h2>What the app looks like</h2>
+          <p>These screens give students a quick feel for the app before they install it: level selection, translation quizzes, and vocabulary practice.</p>
+        </div>
+        <div class="lang" data-lang="zh">
+          <h2>应用界面预览</h2>
+          <p>这些截图可以让学生在安装前快速了解应用的感觉：等级选择、翻译测验，以及词汇练习界面。</p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-phone">
+            <img src="./media/hero-screen.png" alt="HSK Quiz app level selection preview">
+            <strong>
+              <span class="lang active" data-lang="en">Choose your level</span>
+              <span class="lang" data-lang="zh">选择你的等级</span>
+            </strong>
+          </div>
+          <div class="gallery-phone">
+            <img src="./media/quiz-example.png" alt="HSK Quiz translation question preview">
+            <strong>
+              <span class="lang active" data-lang="en">Translation quiz</span>
+              <span class="lang" data-lang="zh">翻译测验</span>
+            </strong>
+          </div>
+          <div class="gallery-phone">
+            <img src="./media/screen-vocab.png" alt="HSK Quiz vocabulary question preview">
+            <strong>
+              <span class="lang active" data-lang="en">Vocabulary practice</span>
+              <span class="lang" data-lang="zh">词汇练习</span>
+            </strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="section notice warn">
+        <div class="lang active" data-lang="en">
+          <h2>Android only for this test</h2>
+          <p>This closed test is currently available only for Android phones. iPhone and iPad users cannot join this version of the test yet.</p>
+        </div>
+        <div class="lang" data-lang="zh">
+          <h2>本次测试仅支持 Android</h2>
+          <p>当前封闭测试仅支持 Android 手机。iPhone 和 iPad 用户暂时无法加入这一次的测试。</p>
+        </div>
+      </section>
+
+      <section class="section notice">
+        <div class="lang active" data-lang="en">
+          <h2>Important for WeChat users in China</h2>
+          <p>WeChat cannot open the Google links, please use your browser and VPN. Please join the tester group before opening the Google Play testing link.</p>
+        </div>
+        <div class="lang" data-lang="zh">
+          <h2>微信用户请注意</h2>
+          <p>微信无法打开 Google 链接，请使用浏览器并连接 VPN。请先加入测试群组，再打开 Google Play 测试链接。</p>
+        </div>
+      </section>
+
+      <section id="how-to-join" class="section">
+        <div class="lang active" data-lang="en">
+          <h2>How to join the closed test</h2>
+        </div>
+        <div class="lang" data-lang="zh">
+          <h2>如何加入封闭测试</h2>
+        </div>
+
+        <div class="steps">
+          <div class="step-card">
+            <span class="step-number">1</span>
+            <strong>
+              <span class="lang active" data-lang="en">Join the tester group</span>
+              <span class="lang" data-lang="zh">加入测试群组</span>
+            </strong>
+            <small>
+              <span class="lang active" data-lang="en">Copy the Google Group link, open it in your browser with VPN, and join the tester group first.</span>
+              <span class="lang" data-lang="zh">先复制 Google Group 链接，再使用浏览器和 VPN 打开，并先加入测试群组。</span>
+            </small>
+          </div>
+          <div class="step-card">
+            <span class="step-number">2</span>
+            <strong>
+              <span class="lang active" data-lang="en">Open the Google Play test link</span>
+              <span class="lang" data-lang="zh">打开 Google Play 测试链接</span>
+            </strong>
+            <small>
+              <span class="lang active" data-lang="en">After joining the group, copy the Play link and open it in your browser.</span>
+              <span class="lang" data-lang="zh">加入群组后，再复制 Play 链接并在浏览器中打开。</span>
+            </small>
+          </div>
+          <div class="step-card">
+            <span class="step-number">3</span>
+            <strong>
+              <span class="lang active" data-lang="en">Tap "Become a tester"</span>
+              <span class="lang" data-lang="zh">点击 “Become a tester”</span>
+            </strong>
+            <small>
+              <span class="lang active" data-lang="en">After the Play page opens, tap "Become a tester" before trying to install the app.</span>
+              <span class="lang" data-lang="zh">打开 Play 页面后，请先点击 “Become a tester”，再开始安装应用。</span>
+            </small>
+          </div>
+          <div class="step-card">
+            <span class="step-number">4</span>
+            <strong>
+              <span class="lang active" data-lang="en">Install on Android and enjoy the app</span>
+              <span class="lang" data-lang="zh">在安卓上安装并开始体验</span>
+            </strong>
+            <small>
+              <span class="lang active" data-lang="en">Install the app, then use it naturally to review Chinese, improve your HSK preparation, and help us improve it for the KUST community.</span>
+              <span class="lang" data-lang="zh">安装后就可以自然地用它练中文、提升 HSK 备考效果，也帮助我们把它做得更适合昆明理工大学国际学生使用。</span>
+            </small>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="lang active" data-lang="en">
+          <h2>Action links</h2>
+        </div>
+        <div class="lang" data-lang="zh">
+          <h2>操作链接</h2>
+        </div>
+
+        <div class="action-grid">
+          <div class="action-card">
+            <strong>
+              <span class="lang active" data-lang="en">Step A: Join Tester Group</span>
+              <span class="lang" data-lang="zh">步骤 A：加入测试群组</span>
+            </strong>
+            <small>
+              <span class="lang active" data-lang="en">Use this first. Open it in your browser, not inside WeChat.</span>
+              <span class="lang" data-lang="zh">请先使用这个链接，并在浏览器中打开，不要只在微信内操作。</span>
+            </small>
+            <div class="link-box">HSK Quiz KUST Testers - https://groups.google.com/g/chinese-practice-group-testers</div>
+            <div class="copy-row">
+              <button type="button" onclick="copyText('https://groups.google.com/g/chinese-practice-group-testers', 'group-copy')">
+                <span class="lang active" data-lang="en">Copy Group Link</span>
+                <span class="lang" data-lang="zh">复制群组链接</span>
+              </button>
+            </div>
+            <div id="group-copy" class="copy-status"></div>
+          </div>
+
+          <div class="action-card">
+            <strong>
+              <span class="lang active" data-lang="en">Step B: Google Play Test Link</span>
+              <span class="lang" data-lang="zh">步骤 B：Google Play 测试链接</span>
+            </strong>
+            <small>
+              <span class="lang active" data-lang="en">Use this after joining the tester group. On the Play page, tap "Become a tester", then install the app. Android only.</span>
+              <span class="lang" data-lang="zh">请在加入测试群组后再使用。打开 Play 页面后，先点击 “Become a tester”，然后安装应用。仅支持安卓。</span>
+            </small>
+            <div class="link-box">https://play.google.com/apps/testing/com.mindluso.hsk_quiz_app</div>
+            <div class="copy-row">
+              <button type="button" onclick="copyText('https://play.google.com/apps/testing/com.mindluso.hsk_quiz_app', 'play-copy')">
+                <span class="lang active" data-lang="en">Copy Play Link</span>
+                <span class="lang" data-lang="zh">复制 Play 链接</span>
+              </button>
+            </div>
+            <div id="play-copy" class="copy-status"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="lang active" data-lang="en">
+          <h2>Why your participation matters</h2>
+          <p>This is more than a test link. It is a chance to use a practical Chinese-learning tool while helping shape something genuinely useful for international students studying at KUST.</p>
+        </div>
+        <div class="lang" data-lang="zh">
+          <h2>为什么你的参与很重要</h2>
+          <p>这不仅仅是一个测试链接，也是一次体验实用中文学习工具的机会，同时帮助我们把它打磨成更适合昆明理工大学国际学生的应用。</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="lang active" data-lang="en">
+          <h2>FAQ</h2>
+        </div>
+        <div class="lang" data-lang="zh">
+          <h2>常见问题</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-card">
+            <strong>
+              <span class="lang active" data-lang="en">Why do I need to join the group first?</span>
+              <span class="lang" data-lang="zh">为什么一定要先加入群组？</span>
+            </strong>
+            <small>
+              <span class="lang active" data-lang="en">The Google Group controls who can access the closed test. Please join it before opening the Play testing link.</span>
+              <span class="lang" data-lang="zh">Google Group 决定谁可以进入封闭测试，所以请先加入群组，再打开 Play 测试链接。</span>
+            </small>
+          </div>
+          <div class="faq-card">
+            <strong>
+              <span class="lang active" data-lang="en">Why might the link not open in WeChat?</span>
+              <span class="lang" data-lang="zh">为什么微信里可能打不开链接？</span>
+            </strong>
+            <small>
+              <span class="lang active" data-lang="en">WeChat does not open Google links reliably in China. If the page does not open, copy the link and use your browser with VPN.</span>
+              <span class="lang" data-lang="zh">在中国，微信通常无法稳定打开 Google 链接。如果页面打不开，请复制链接，并使用浏览器和 VPN。</span>
+            </small>
+          </div>
+          <div class="faq-card">
+            <strong>
+              <span class="lang active" data-lang="en">Do I need a VPN?</span>
+              <span class="lang" data-lang="zh">我需要 VPN 吗？</span>
+            </strong>
+            <small>
+              <span class="lang active" data-lang="en">Yes, in most cases you will need VPN access to open the Google Group and Google Play links from China.</span>
+              <span class="lang" data-lang="zh">大多数情况下需要。因为在中国访问 Google Group 和 Google Play 链接，通常都需要 VPN。</span>
+            </small>
+          </div>
+          <div class="faq-card">
+            <strong>
+              <span class="lang active" data-lang="en">Can beginners use the app?</span>
+              <span class="lang" data-lang="zh">初学者可以使用吗？</span>
+            </strong>
+            <small>
+              <span class="lang active" data-lang="en">Yes. The app covers multiple HSK levels and can be useful for both beginners and more advanced learners.</span>
+              <span class="lang" data-lang="zh">可以。这个应用覆盖多个 HSK 等级，对初学者和更高阶段的学习者都很有帮助。</span>
+            </small>
+          </div>
+          <div class="faq-card">
+            <strong>
+              <span class="lang active" data-lang="en">Can iPhone users join?</span>
+              <span class="lang" data-lang="zh">iPhone 用户可以参加吗？</span>
+            </strong>
+            <small>
+              <span class="lang active" data-lang="en">Not in this closed test version. The current test is Android only.</span>
+              <span class="lang" data-lang="zh">当前这个封闭测试版本不可以，目前只支持安卓。</span>
+            </small>
+          </div>
+          <div class="faq-card">
+            <strong>
+              <span class="lang active" data-lang="en">Do I need to tap "Become a tester"?</span>
+              <span class="lang" data-lang="zh">我需要点击 “Become a tester” 吗？</span>
+            </strong>
+            <small>
+              <span class="lang active" data-lang="en">Yes. On the Google Play closed-test page, tap "Become a tester" before installing the app.</span>
+              <span class="lang" data-lang="zh">需要。在 Google Play 封闭测试页面中，请先点击 “Become a tester”，再安装应用。</span>
+            </small>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="lang active" data-lang="en">
+          <h2>Support assets</h2>
+          <p>Use these ready-made materials for WeChat sharing, posters, and simple install guidance.</p>
+        </div>
+        <div class="lang" data-lang="zh">
+          <h2>辅助素材</h2>
+          <p>你可以使用这些现成素材进行微信分享、海报展示或安装说明。</p>
+        </div>
+
+        <div class="asset-links">
+          <a href="./poster-kust-closed-test.png">Campus poster PNG</a>
+          <a href="./install-guide.png">Install guide PNG</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="lang active" data-lang="en">
+          <h2>Contact and feedback</h2>
+          <div class="contact-card">
+            <p>WeChat contact: <strong>joaoferna</strong></p>
+            <p>Scan the QR code below to add me on WeChat.</p>
+            <img class="contact-qr" src="./media/contact.png" alt="WeChat contact QR code for joaoferna">
+          </div>
+        </div>
+        <div class="lang" data-lang="zh">
+          <h2>联系方式与反馈</h2>
+          <div class="contact-card">
+            <p>微信联系方式：<strong>joaoferna</strong></p>
+            <p>扫描下面的二维码即可添加我的微信。</p>
+            <img class="contact-qr" src="./media/contact.png" alt="joaoferna 的微信二维码">
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="footer">HSK Quiz App Closed Test Guide · KUST International Student Community</div>
+  </div>
+
+  <script>
+    const labels = {
+      en: {
+        copied: "Link copied. Open it in your browser.",
+        failed: "Copy failed. Please copy the raw link manually."
+      },
+      zh: {
+        copied: "链接已复制，请在浏览器中打开。",
+        failed: "复制失败，请手动复制原始链接。"
+      }
+    };
+
+    let currentLang = "en";
+
+    function setLang(lang) {
+      currentLang = lang;
+      document.querySelectorAll(".lang").forEach((node) => {
+        node.classList.toggle("active", node.dataset.lang === lang);
+      });
+      document.getElementById("btn-en").classList.toggle("active", lang === "en");
+      document.getElementById("btn-zh").classList.toggle("active", lang === "zh");
+      document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+    }
+
+    async function copyText(text, statusId) {
+      const status = document.getElementById(statusId);
+      try {
+        await navigator.clipboard.writeText(text);
+        if (status) status.textContent = labels[currentLang].copied;
+      } catch (error) {
+        if (status) status.textContent = labels[currentLang].failed;
+      }
+    }
+  </script>
+</body>
+</html>
+
