@@ -1,0 +1,85 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="guideBg" x1="101" y1="65" x2="1470" y2="814" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF4E8"/>
+      <stop offset="1" stop-color="#FFFDFC"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" rx="38" fill="url(#guideBg)"/>
+  <text fill="#1F1915" font-family="Segoe UI, Arial, sans-serif" font-size="58" font-weight="800">
+    <tspan x="92" y="124">HSK Quiz App closed test guide</tspan>
+  </text>
+  <text fill="#6A5B51" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="500">
+    <tspan x="92" y="172">For KUST international students - Android only - Join group first</tspan>
+  </text>
+
+  <rect x="90" y="238" width="320" height="470" rx="28" fill="#FFFFFF" stroke="#EFD9C5"/>
+  <rect x="450" y="238" width="320" height="470" rx="28" fill="#FFFFFF" stroke="#EFD9C5"/>
+  <rect x="810" y="238" width="320" height="470" rx="28" fill="#FFFFFF" stroke="#EFD9C5"/>
+  <rect x="1170" y="238" width="320" height="470" rx="28" fill="#FFFFFF" stroke="#EFD9C5"/>
+
+  <circle cx="140" cy="290" r="28" fill="#FFE1CA"/>
+  <circle cx="500" cy="290" r="28" fill="#FFE1CA"/>
+  <circle cx="860" cy="290" r="28" fill="#FFE1CA"/>
+  <circle cx="1220" cy="290" r="28" fill="#FFE1CA"/>
+
+  <text fill="#A5481B" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="800">
+    <tspan x="131" y="299">1</tspan>
+    <tspan x="491" y="299">2</tspan>
+    <tspan x="851" y="299">3</tspan>
+    <tspan x="1211" y="299">4</tspan>
+  </text>
+
+  <text fill="#1F1915" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="800">
+    <tspan x="124" y="358">Join the tester</tspan>
+    <tspan x="124" y="404">Google Group</tspan>
+    <tspan x="484" y="358">Copy the Play</tspan>
+    <tspan x="484" y="404">test link</tspan>
+    <tspan x="844" y="358">Tap "Become</tspan>
+    <tspan x="844" y="404">a tester"</tspan>
+    <tspan x="1204" y="358">Install on</tspan>
+    <tspan x="1204" y="404">Android</tspan>
+  </text>
+
+  <text fill="#6A5B51" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="500">
+    <tspan x="124" y="470">Use the group link first.</tspan>
+    <tspan x="124" y="510">This should happen before</tspan>
+    <tspan x="124" y="550">opening the Play test page.</tspan>
+
+    <tspan x="484" y="470">After joining the group,</tspan>
+    <tspan x="484" y="510">copy this real Play link:</tspan>
+
+    <tspan x="844" y="470">After the Play page opens,</tspan>
+    <tspan x="844" y="510">tap "Become a tester"</tspan>
+    <tspan x="844" y="550">before installing.</tspan>
+
+    <tspan x="1204" y="470">This version is Android only.</tspan>
+    <tspan x="1204" y="510">iPhone users cannot join</tspan>
+    <tspan x="1204" y="550">this closed test yet.</tspan>
+  </text>
+
+  <rect x="132" y="602" width="236" height="94" rx="18" fill="#FFF4E7" stroke="#F0D3B9" stroke-dasharray="14 10"/>
+  <text fill="#A5481B" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">
+    <tspan x="154" y="638">groups.google.com/g/</tspan>
+    <tspan x="154" y="670">chinese-practice-group-</tspan>
+    <tspan x="154" y="702">testers</tspan>
+  </text>
+
+  <rect x="492" y="602" width="236" height="94" rx="18" fill="#FFF4E7" stroke="#F0D3B9" stroke-dasharray="14 10"/>
+  <text fill="#A5481B" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700">
+    <tspan x="514" y="638">play.google.com/apps/</tspan>
+    <tspan x="514" y="668">testing/com.mindluso.</tspan>
+    <tspan x="514" y="698">hsk_quiz_app</tspan>
+  </text>
+
+  <path d="M419 470H444" stroke="#D95D27" stroke-width="8" stroke-linecap="round"/>
+  <path d="M779 470H804" stroke="#D95D27" stroke-width="8" stroke-linecap="round"/>
+  <path d="M1139 470H1164" stroke="#D95D27" stroke-width="8" stroke-linecap="round"/>
+
+  <text fill="#A5481B" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="800">
+    <tspan x="92" y="804">Goal:</tspan>
+  </text>
+  <text fill="#6A5B51" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="500">
+    <tspan x="168" y="804">Practice Chinese in a fun way and help improve an HSK study tool for KUST international students.</tspan>
+  </text>
+</svg>

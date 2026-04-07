@@ -1,0 +1,69 @@
+<svg width="1080" height="1920" viewBox="0 0 1080 1920" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="150" y1="90" x2="910" y2="1820" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF4E8"/>
+      <stop offset="1" stop-color="#FFFDFC"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="237" y1="239" x2="830" y2="1235" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E36C2C"/>
+      <stop offset="1" stop-color="#F5A25A"/>
+    </linearGradient>
+  </defs>
+  <rect width="1080" height="1920" rx="48" fill="url(#bg)"/>
+  <circle cx="928" cy="192" r="250" fill="#FFD7BB" fill-opacity="0.7"/>
+  <circle cx="154" cy="1504" r="260" fill="#FFE9D3" fill-opacity="0.9"/>
+  <rect x="70" y="74" width="940" height="1772" rx="40" fill="white" fill-opacity="0.72" stroke="#EFD9C5"/>
+  <rect x="126" y="132" width="360" height="76" rx="38" fill="#FFF5EC" stroke="#F3CBA9"/>
+  <text fill="#A5481B" font-family="Segoe UI, Arial, sans-serif" font-size="32" font-weight="700" letter-spacing="3">
+    <tspan x="160" y="181">KUST CLOSED TEST</tspan>
+  </text>
+  <text fill="#201915" font-family="Segoe UI, Arial, sans-serif" font-size="92" font-weight="800">
+    <tspan x="126" y="336">Practice Chinese</tspan>
+    <tspan x="126" y="432">with HSK Quiz App</tspan>
+  </text>
+  <text fill="#6A5B51" font-family="Segoe UI, Arial, sans-serif" font-size="38" font-weight="500">
+    <tspan x="126" y="518">Made for international students at</tspan>
+    <tspan x="126" y="570">Kunming University of Science and Technology</tspan>
+  </text>
+  <rect x="126" y="640" width="300" height="72" rx="36" fill="#FFF4E7" stroke="#F2CBAA"/>
+  <rect x="446" y="640" width="402" height="72" rx="36" fill="#FFF4E7" stroke="#F2CBAA"/>
+  <text fill="#A5481B" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="700">
+    <tspan x="176" y="686">Android only</tspan>
+  </text>
+  <text fill="#A5481B" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="700">
+    <tspan x="484" y="686">Join the tester group first</tspan>
+  </text>
+  <rect x="126" y="772" width="828" height="360" rx="36" fill="#1F1815"/>
+  <text fill="#FFF3EB" font-family="Segoe UI, Arial, sans-serif" font-size="44" font-weight="800">
+    <tspan x="172" y="864">Simple install flow</tspan>
+  </text>
+  <text fill="#FFE2D2" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="600">
+    <tspan x="172" y="954">1. Join Google Group</tspan>
+    <tspan x="172" y="1028">2. Open Play test link in browser</tspan>
+    <tspan x="172" y="1102">3. Install on Android</tspan>
+  </text>
+  <rect x="126" y="1180" width="828" height="220" rx="36" fill="#FFF7EF" stroke="#EFD9C5"/>
+  <text fill="#201915" font-family="Segoe UI, Arial, sans-serif" font-size="44" font-weight="800">
+    <tspan x="172" y="1260">Why join?</tspan>
+  </text>
+  <text fill="#6A5B51" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="500">
+    <tspan x="172" y="1336">Practice vocabulary, pinyin, translation,</tspan>
+    <tspan x="172" y="1388">and sentence patterns in a fun way.</tspan>
+  </text>
+  <rect x="126" y="1452" width="380" height="310" rx="32" fill="#FFFFFF" stroke="#F1DDCC"/>
+  <rect x="544" y="1452" width="410" height="310" rx="32" fill="url(#accent)"/>
+  <text fill="#201915" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="700">
+    <tspan x="178" y="1518">Scan to open the guide</tspan>
+  </text>
+  <rect x="154" y="1548" width="236" height="236" rx="20" fill="#FFF9F3" stroke="#F0D3B9"/>
+  <image href="./media/landing page qr code.png" x="172" y="1566" width="200" height="200" preserveAspectRatio="xMidYMid meet"/>
+  <text fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="36" font-weight="800">
+    <tspan x="586" y="1526">Links</tspan>
+  </text>
+  <text fill="#FFF4E8" font-family="Consolas, monospace" font-size="24" font-weight="400">
+    <tspan x="586" y="1608">groups.google.com/g/</tspan>
+    <tspan x="586" y="1642">chinese-practice-group-testers</tspan>
+    <tspan x="586" y="1702">play.google.com/apps/testing/</tspan>
+    <tspan x="586" y="1740">com.mindluso.hsk_quiz_app</tspan>
+  </text>
+</svg>
